@@ -1,0 +1,19 @@
+.sec{padding:68px clamp(20px,4vw,48px);max-width:min(1240px,100%);margin:0 auto;width:100%}
+.sec-label{font-size:18px;letter-spacing:4px;text-transform:uppercase;color:var(--green-bright);margin-bottom:18px}
+.sec-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(39px,4.9vw,76px);line-height:1;color:var(--text);margin-bottom:24px}
+.sec-title span{color:var(--green-bright)}
+.sec-desc{font-size:26px;font-weight:300;color:var(--muted);line-height:1.65;max-width:860px;margin-bottom:42px}
+
+@media(max-width:900px){
+  .sec{padding:42px 20px}
+  .sec-label{font-size:14px;letter-spacing:3px}
+  .sec-title{font-size:clamp(28px,7.7vw,42px)}
+  .sec-desc{font-size:18px;max-width:none;margin-bottom:28px}
+}
+
+@media(max-width:600px){
+  .sec{padding:30px 16px}
+  .sec-label{font-size:11px;letter-spacing:2.2px;margin-bottom:10px}
+  .sec-title{font-size:clamp(21px,7vw,29px);margin-bottom:14px}
+  .sec-desc{font-size:15px;line-height:1.55;margin-bottom:22px}
+}

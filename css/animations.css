@@ -1,0 +1,11 @@
+@keyframes learnMoreBlink{
+  0%,100%{opacity:1;text-shadow:0 0 0 rgba(94,201,38,0)}
+  50%{opacity:.75;text-shadow:0 0 10px rgba(94,201,38,.65),0 0 22px rgba(94,201,38,.35)}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(94,201,38,.5)}50%{box-shadow:0 0 0 7px rgba(94,201,38,0)}}
+@keyframes hurricaneCurtainDrop{from{opacity:0;transform:translateY(-42px) scaleY(.9)}to{opacity:1;transform:translateY(0) scaleY(1)}}
+@keyframes hurricaneIconBlink{0%,100%{opacity:1;transform:scale(1) rotate(0deg)}50%{opacity:.45;transform:scale(1.12) rotate(-8deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes slideInRightSoft{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:translateX(0)}}

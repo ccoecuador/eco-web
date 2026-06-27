@@ -1,0 +1,132 @@
+# EcoTech Electrical - Apache Configuration
+# Redirection rules for HTTPS and www normalization
+
+# =============================================================================
+# ENABLE REWRITE ENGINE
+# =============================================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # =============================================================================
+    # 1. FORCE HTTPS (HTTP -> HTTPS)
+    # =============================================================================
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # =============================================================================
+    # 2. REMOVE WWW (Canonical URL without www)
+    # =============================================================================
+    # Redirect www to non-www version
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # =============================================================================
+    # 3. REMOVE /index.html FROM URLs
+    # =============================================================================
+    # If the requested file is not a real file or directory
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Remove /index.html from URLs (if someone visits /index.html directly)
+    RewriteCond %{REQUEST_URI} /index\.html$ [NC]
+    RewriteRule ^(.*/)index\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
+    
+    # =============================================================================
+    # 4. DIRECTORY INDEXING - allow index.html as default
+    # =============================================================================
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.html [QSA,L]
+    
+</IfModule>
+
+# =============================================================================
+# SECURITY & PERFORMANCE HEADERS
+# =============================================================================
+<IfModule mod_headers.c>
+    # Force HTTPS (HSTS - HTTP Strict Transport Security)
+    Header always set Strict-Transport-Security "max-age=31536000"
+    
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Prevent MIME-sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Content Security Policy (basic)
+    Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data: https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com https://img1.wsimg.com; script-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com https://img1.wsimg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'self' https://csp.secureserver.net https://cdn.jsdelivr.net https://api-python-flask.eco-techelectricalgroup.com;"
+    
+    # Cache-Control for aggressive caching of images (carousels, assets)
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|woff|woff2|ttf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Cache-Control for CSS and JavaScript (long-term caching)
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+# =============================================================================
+# COMPRESSION & CACHING
+# =============================================================================
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# =============================================================================
+# BROWSER CACHING
+# =============================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType application/x-font "access plus 1 year"
+    ExpiresByType application/x-font-truetype "access plus 1 year"
+    ExpiresByType application/x-font-opentype "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    
+    # HTML files (short cache to get updates quickly)
+    ExpiresByType text/html "access plus 30 minutes"
+</IfModule>
+
+# =============================================================================
+# DISABLE DIRECTORY LISTING
+# =============================================================================
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>

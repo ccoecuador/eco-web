@@ -1,0 +1,22 @@
+# Agents
+.agents/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Node / npm
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*

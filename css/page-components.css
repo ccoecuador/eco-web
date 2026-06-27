@@ -1,0 +1,22 @@
+/* Shared cross-page typography primitives for services and quote pages */
+.svc-hero-title,
+.gen-card-title,
+.quote-info-title,
+.form-section-title{
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  color:var(--text);
+}
+
+.svc-hero-sub,
+.gen-card-text,
+.quote-side-card p,
+.form-section-desc,
+.field-help{
+  color:var(--muted);
+}
+
+.svc-hero-sub,
+.gen-card-text{
+  font-weight:300;
+}
