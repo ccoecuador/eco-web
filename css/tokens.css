@@ -1,12 +1,21 @@
-:root{
-  --green:#009a55;
-  --green-bright:#00c46a;
-  --green-dark:#006b3c;
+:root {
+  --color-primary: #0B2D42;
+  --color-secondary: #1E6F8C;
+  --color-accent: #2AB7A9;
+  --color-accent-soft: #8CCB5E;
+  --color-background: #F3F7F8;
+  --color-neutral: #6B7C85;
+  --color-text: #071E2D;
 
-  --black:#0B1120;
-  --charcoal:#0b0f0d;
-  --mid:#121816;
+  /* Keep legacy variables pointing to new ones to avoid breaking unupdated elements immediately */
+  --green: var(--color-secondary);
+  --green-bright: var(--color-accent);
+  --green-dark: var(--color-primary);
 
-  --text:#e6f2ec;
-  --muted:#8fa79a;
+  --black: var(--color-primary);
+  --charcoal: #0e374f; /* Slightly lighter than primary for dark cards */
+  --mid: #144865;
+
+  --text: var(--color-text);
+  --muted: var(--color-neutral);
 }

@@ -6,7 +6,7 @@
 /* ── PAGE HERO ── */
 .svc-hero{
   margin-top:74px;
-  background:linear-gradient(135deg,rgba(42,122,46,.22),rgba(10,15,10,.96)) center/cover no-repeat;
+  background:linear-gradient(135deg,rgba(0,90,140,.22),rgba(5,12,20,.96)) center/cover no-repeat;
   padding:80px clamp(20px,4vw,48px) 72px;
   position:relative;
   overflow:hidden;
@@ -14,7 +14,7 @@
 .svc-hero::after{
   content:'';
   position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(10,15,10,.7) 0%,transparent 65%);
+  background:linear-gradient(90deg,rgba(5,12,20,.7) 0%,transparent 65%);
   pointer-events:none;
 }
 .svc-hero-inner{position:relative;z-index:2;max-width:2228px;margin:0 auto}
@@ -50,11 +50,11 @@
   display:block;
   position:relative;
   z-index:1;
-  /* resting state: subtle diffused green glow */
+  /* resting state: subtle diffused glow */
   box-shadow:
-    0 0 0 3px rgba(94,201,38,.35),
-    0 0 22px rgba(94,201,38,.18),
-    0 0 50px rgba(94,201,38,.07);
+    0 0 0 3px rgba(42,183,169,.35),
+    0 0 22px rgba(42,183,169,.18),
+    0 0 50px rgba(42,183,169,.07);
   transform:scale(.72);
   filter:blur(18px);
   opacity:.86;
@@ -69,10 +69,10 @@
 .gen-img-wrap:hover .gen-img{
   /* hover state: full glow burst */
   box-shadow:
-    0 0 0 3px var(--green-bright),
-    0 0 28px rgba(94,201,38,.70),
-    0 0 60px rgba(94,201,38,.40),
-    0 0 100px rgba(94,201,38,.18);
+    0 0 0 3px var(--color-accent),
+    0 0 28px rgba(42,183,169,.70),
+    0 0 60px rgba(42,183,169,.40),
+    0 0 100px rgba(42,183,169,.18);
 }
 
 /* rect no longer needed — kept in HTML for backwards compat */
@@ -104,17 +104,18 @@
   gap:10px;
   padding:20px 18px;
   text-decoration:none;
-  background:var(--charcoal);
-  border:1px solid rgba(94,201,38,.14);
+  background:#fff;
+  border-radius:8px;
+  border:1px solid rgba(107,124,133,.15);
   border-bottom:3px solid transparent;
   transition:transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
 }
 .other-service-card:hover{
   transform:translateY(-3px);
-  background:var(--mid);
-  border-color:rgba(94,201,38,.28);
-  border-bottom-color:var(--green-bright);
-  box-shadow:0 12px 26px rgba(0,0,0,.24);
+  background:#fff;
+  border-color:rgba(107,124,133,.3);
+  border-bottom-color:var(--color-accent);
+  box-shadow:0 12px 26px rgba(0,0,0,.06);
 }
 .other-service-title{
   font-family:'Montserrat',sans-serif;
@@ -122,13 +123,13 @@
   font-size:24px;
   line-height:1;
   letter-spacing:1px;
-  color:var(--text);
+  color:var(--color-text);
 }
 .other-service-link{
   font-size:11px;
   letter-spacing:1.8px;
   text-transform:uppercase;
-  color:var(--green-bright);
+  color:var(--color-secondary);
 }
 .other-services-section{
   margin-top:-28px;
@@ -140,7 +141,7 @@
 .service-bottom-cta{
   margin-top:34px;
   padding-top:34px;
-  border-top:1px solid rgba(94,201,38,.12);
+  border-top:1px solid rgba(0,174,239,.12);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -180,25 +181,27 @@
   will-change:transform;
 }
 .gen-carousel-item{
-  flex:0 0 calc(50% - 12px);
+  flex:0 0 calc(33.3333% - 16px);
   min-width:0;
 }
 .gen-card{
   min-width:0;
-  background:var(--charcoal);
+  background:#fff;
   display:flex;
   flex-direction:column;
   overflow:hidden;
+  border-radius:12px;
   border-bottom:3px solid transparent;
-  border:1px solid rgba(94,201,38,.08);
+  border:1px solid rgba(107,124,133,.15);
+  box-shadow:0 8px 24px rgba(0,0,0,0.04);
   transition:border-color .25s,transform .25s,box-shadow .25s,background .25s;
 }
 .gen-card:hover{
-  border-bottom-color:var(--green-bright);
-  border-color:rgba(94,201,38,.28);
-  background:var(--mid);
+  border-bottom-color:var(--color-accent);
+  border-color:rgba(107,124,133,.3);
+  background:#fff;
   transform:translateY(-4px);
-  box-shadow:0 18px 40px rgba(0,0,0,.28),0 0 0 1px rgba(94,201,38,.18);
+  box-shadow:0 16px 36px rgba(0,0,0,.08),0 0 0 1px rgba(107,124,133,.05);
 }
 .gen-card-img-wrap{width:100%;aspect-ratio:16/9;overflow:hidden}
 .gen-card-img{
@@ -208,9 +211,9 @@
   transition:transform .4s ease;
 }
 .gen-card:hover .gen-card-img{transform:scale(1.04)}
-.gen-card-body{padding:34px 36px 40px}
-.gen-card-title{font-size:33px;letter-spacing:1.2px;margin-bottom:14px;line-height:1.06}
-.gen-card-text{font-size:20px;line-height:1.8;margin:0}
+.gen-card-body{padding:24px 26px 28px}
+.gen-card-title{color:var(--color-text);font-size:23px;letter-spacing:1px;margin-bottom:10px;line-height:1.1}
+.gen-card-text{color:var(--color-neutral);font-size:15px;line-height:1.6;margin:0}
 
 /* carousel nav buttons */
 .gen-carousel-btn{
@@ -219,7 +222,7 @@
   transform:translateY(-50%);
   width:clamp(40px,3vw,48px);height:clamp(40px,3vw,48px);
   background:var(--charcoal);
-  border:1px solid rgba(94,201,38,.3);
+  border:1px solid rgba(0,174,239,.3);
   color:var(--green-bright);
   font-size:26px;
   line-height:1;
@@ -240,7 +243,7 @@
 }
 .gen-dot{
   width:8px;height:8px;border-radius:50%;
-  background:rgba(94,201,38,.25);
+  background:rgba(0,174,239,.25);
   border:none;
   cursor:pointer;
   padding:0;
@@ -260,9 +263,9 @@
   .gen-carousel-outer{padding:0 24px}
   .gen-carousel-track{gap:0}
   .gen-carousel-item{flex-basis:100%}
-  .gen-card-body{padding:28px 26px 30px}
-  .gen-card-title{font-size:28px}
-  .gen-card-text{font-size:17px;line-height:1.75}
+  .gen-card-body{padding:20px 18px 22px}
+  .gen-card-title{font-size:21px}
+  .gen-card-text{font-size:14px;line-height:1.6}
 }
 
 @media(max-width:900px){
@@ -287,9 +290,9 @@
   .gen-carousel-outer{padding:0 30px}
   .gen-carousel-track{gap:0}
   .gen-carousel-item{flex-basis:100%}
-  .gen-card-body{padding:26px 24px 28px}
-  .gen-card-title{font-size:26px}
-  .gen-card-text{font-size:16px}
+  .gen-card-body{padding:18px 16px 20px}
+  .gen-card-title{font-size:19px}
+  .gen-card-text{font-size:14px}
   .gen-carousel-btn{width:44px;height:44px;font-size:24px}
 }
 
@@ -313,9 +316,9 @@
   .gen-content .sec-title{margin-bottom:14px}
   .gen-content .sec-desc{font-size:15px;line-height:1.6;margin-bottom:20px}
   .gen-carousel-outer{padding:0 16px}
-  .gen-card-body{padding:20px}
-  .gen-card-title{font-size:22px;margin-bottom:10px}
-  .gen-card-text{font-size:15px;line-height:1.7}
+  .gen-card-body{padding:16px}
+  .gen-card-title{font-size:17px;margin-bottom:8px}
+  .gen-card-text{font-size:13px;line-height:1.6}
   .gen-carousel-btn{width:40px;height:40px;font-size:22px}
   .gen-carousel-dots{margin-top:16px}
 }
@@ -337,3 +340,4 @@
     transition:box-shadow .45s ease;
   }
 }
+
