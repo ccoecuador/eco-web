@@ -20,8 +20,12 @@ export function createQuoteUI() {
   };
 
   function populateServices(services) {
-    const options = ['<option value="">Select service...</option>']
-      .concat(services.map((service) => `<option value="${service}">${service}</option>`));
+    const options = ['<option value="">Select a service...</option>']
+      .concat(services.map((service) => {
+        const val = typeof service === 'object' ? service.value : service;
+        const lbl = typeof service === 'object' ? service.label : service;
+        return `<option value="${val}">${lbl}</option>`;
+      }));
     refs.serviceSelect.innerHTML = options.join('');
   }
 

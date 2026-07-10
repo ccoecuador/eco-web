@@ -5,7 +5,7 @@
 #nav #mainNav{justify-content:center}
 .nav-logo{display:flex;align-items:center;gap:12px;min-width:0}
 .nav-logo{text-decoration:none}
-.nav-logo img{width:48px;height:48px;object-fit:contain;border-radius:50%;background:#fff;padding:2px}
+.nav-logo img{width:48px;height:48px;object-fit:contain;background:#fff;border-radius:50%;padding:2px}
 .nav-logo-text{min-width:0}
 .nav-logo-text .top{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;letter-spacing:3px;line-height:1;color:var(--text);white-space:nowrap}
 .nav-logo-text .top span{color:var(--green-bright)}

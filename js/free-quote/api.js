@@ -1,10 +1,13 @@
 const LOCAL_SERVICES = [
-  'Generator',
-  'Electrical Service Upgrade',
-  'Electrical Panel Replacement',
-  'New Construction',
-  'Renewal and Addition',
-  'Others',
+  { value: 'hvac-installation-and-replacement', label: 'HVAC Installation & Replacement' },
+  { value: 'hvac-repair-and-emergency-service', label: 'HVAC Repair & Emergency Service' },
+  { value: 'heating-and-heat-pump-services', label: 'Heating & Heat Pump Services' },
+  { value: 'preventive-maintenance-plans', label: 'Preventive Maintenance Plans' },
+  { value: 'ductwork-ventilation-and-exhaust', label: 'Ductwork, Ventilation & Exhaust Systems' },
+  { value: 'indoor-air-quality-solutions', label: 'Indoor Air Quality Solutions' },
+  { value: 'commercial-and-industrial-hvac', label: 'Commercial & Industrial HVAC Systems' },
+  { value: 'mechanical-construction-and-build-outs', label: 'Mechanical Construction & HVAC Build-Outs' },
+  { value: 'comfort-controls-and-energy-efficiency', label: 'Comfort Controls & Energy Efficiency' },
 ];
 
 const API_BASE_URL = 'https://api-python-flask.eco-techelectricalgroup.com';

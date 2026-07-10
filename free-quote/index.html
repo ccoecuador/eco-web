@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/free-quote.css" />
-  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
 </head>
 
 <body>
@@ -24,7 +24,7 @@
   <nav id="nav" class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid nav-shell">
       <a class="navbar-brand nav-logo" href="../index.html">
-        <img src="../assets/logo.jpg" alt="Coolbreeze Logo" />
+        <img src="../assets/logo.png" alt="Coolbreeze Logo" />
         <div class="nav-logo-text">
           <div class="top"><span>COOL</span>BREEZE</div>
           <div class="sub">HVAC Services</div>
@@ -125,15 +125,15 @@
                 <label class="quote-label" for="service">Service <span>*</span></label>
                 <select class="fi" id="service" name="service">
                   <option value="">Select a service...</option>
-                  <option value="HVAC Installation & Replacement">HVAC Installation &amp; Replacement</option>
-                  <option value="HVAC Repair & Emergency Service">HVAC Repair &amp; Emergency Service</option>
-                  <option value="Heating & Heat Pump Services">Heating &amp; Heat Pump Services</option>
-                  <option value="Preventive Maintenance Plans">Preventive Maintenance Plans</option>
-                  <option value="Ductwork, Ventilation & Exhaust Systems">Ductwork, Ventilation &amp; Exhaust Systems</option>
-                  <option value="Indoor Air Quality Solutions">Indoor Air Quality Solutions</option>
-                  <option value="Commercial & Industrial HVAC Systems">Commercial &amp; Industrial HVAC Systems</option>
-                  <option value="Mechanical Construction & HVAC Build-Outs">Mechanical Construction &amp; HVAC Build-Outs</option>
-                  <option value="Comfort Controls & Energy Efficiency">Comfort Controls &amp; Energy Efficiency</option>
+                  <option value="hvac-installation-and-replacement">HVAC Installation &amp; Replacement</option>
+                  <option value="hvac-repair-and-emergency-service">HVAC Repair &amp; Emergency Service</option>
+                  <option value="heating-and-heat-pump-services">Heating &amp; Heat Pump Services</option>
+                  <option value="preventive-maintenance-plans">Preventive Maintenance Plans</option>
+                  <option value="ductwork-ventilation-and-exhaust">Ductwork, Ventilation &amp; Exhaust Systems</option>
+                  <option value="indoor-air-quality-solutions">Indoor Air Quality Solutions</option>
+                  <option value="commercial-and-industrial-hvac">Commercial &amp; Industrial HVAC Systems</option>
+                  <option value="mechanical-construction-and-build-outs">Mechanical Construction &amp; HVAC Build-Outs</option>
+                  <option value="comfort-controls-and-energy-efficiency">Comfort Controls &amp; Energy Efficiency</option>
                 </select>
                 <div class="field-help">Select the service that best matches your request.</div>
                 <div class="field-error" id="service-error"></div>
@@ -151,6 +151,16 @@
                 <div class="field-help">If not selected, we will send it as Not specified.</div>
                 <div class="field-error" id="property_type-error"></div>
               </div>
+            </div>
+
+            <div class="field-wrap problem-box">
+              <label class="quote-label">Available problems <span>*</span></label>
+              <input type="hidden" id="property_problems" name="property_problems" value="" />
+              <div class="field-help" id="problemsStatus">Select a service to load the available problems.</div>
+              <div id="problemsContainer" class="problem-grid is-empty">
+                <div class="problem-placeholder">Select a service first to see the available issues.</div>
+              </div>
+              <div class="field-error" id="property_problems-error"></div>
             </div>
           </section>
 
@@ -172,7 +182,7 @@
 
           <div id="formNotice" class="form-alert" aria-live="polite"></div>
 
-          <button id="quoteSubmit" class="btn-primary quote-submit" type="submit">Get My Free Quote →</button>
+          <button id="quoteSubmit" class="btn-primary quote-submit" type="submit">Get My Free Quote â†’</button>
         </form>
       </div>
     </div>
@@ -183,7 +193,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo">
-          <img src="../assets/logo.jpg" alt="Coolbreeze Logo" />
+          <img src="../assets/logo.png" alt="Coolbreeze Logo" />
           <div class="footer-brand bebas">COOLBREEZE</div>
         </div>
         <div class="footer-tag">Comfort You Can Count On. Climate Control Done Right.<br>South Florida's trusted HVAC contractor.
@@ -228,13 +238,80 @@
     </div>
   </footer>
 
+  <div class="modal fade" id="successRequestModal" tabindex="-1" aria-labelledby="successRequestModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content server-modal">
+        <div class="server-modal-accent"></div>
+        <div class="modal-header server-modal-header">
+          <div class="server-modal-title-wrap">
+            <span class="server-modal-icon server-modal-icon-success"><i class="bi bi-check-circle-fill"></i></span>
+            <div>
+              <h5 class="modal-title" id="successRequestModalLabel">Request Sent Successfully!</h5>
+            </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body server-modal-body">
+          <p>Thank you! We've received your request and one of our specialists will contact you shortly.</p>
+          <p>If your request is urgent, feel free to call us now.</p>
+        </div>
+        <div class="modal-footer server-modal-footer">
+          <a href="tel:+17867917844" id="successModalCallBtn" class="btn server-modal-call-btn">
+            <i class="bi bi-telephone-fill"></i>
+            <span>Call Us Now</span>
+          </a>
+          <button type="button" id="successModalNewRequestBtn" class="btn server-modal-secondary-btn"
+            data-bs-dismiss="modal">ðŸ”„ New Request</button>
+          <button type="button" id="successModalCloseBtn" class="btn server-modal-secondary-btn"
+            data-bs-dismiss="modal">âŒ Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="serverUnavailableModal" tabindex="-1" aria-labelledby="serverUnavailableModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content server-modal">
+        <div class="server-modal-accent"></div>
+        <div class="modal-header server-modal-header">
+          <div class="server-modal-title-wrap">
+            <span class="server-modal-icon server-modal-icon-alert"><i
+                class="bi bi-exclamation-triangle-fill"></i></span>
+            <div>
+              <h5 class="modal-title" id="serverUnavailableModalLabel">There was a problem submitting the form</h5>
+            </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body server-modal-body">
+          <p id="serverUnavailableModalMessage">We couldnâ€™t send your request at the moment.</p>
+          <p>Need immediate assistance? Our team is ready to help by phone.</p>
+        </div>
+        <div class="modal-footer server-modal-footer">
+          <a href="tel:+17867917844" id="serverModalCallBtn" class="btn server-modal-call-btn">
+            <i class="bi bi-telephone-fill"></i>
+            <span>Call Us Now</span>
+          </a>
+          <button type="button" id="serverModalTryAgainBtn" class="btn server-modal-secondary-btn"
+            data-bs-dismiss="modal">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/just-validate@4.3.0/dist/just-validate.production.min.js"></script>
   <script src="../js/main.js"></script>
+  <script type="module" src="../js/free-quote.js"></script>
 </body>
 
 </html>
+
+
 
 
 
