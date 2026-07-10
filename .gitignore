@@ -1,6 +1,9 @@
 # Agents
 .agents/
 
+# Custom folders
+Detalles/
+
 # VS Code
 .vscode/
 *.code-workspace
