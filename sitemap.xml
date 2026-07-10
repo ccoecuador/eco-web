@@ -1,53 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
-    <loc>https://eco-techelectricalgroup.com/</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://coolbreezeac.com/</loc>
+    <lastmod>2025-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://eco-techelectricalgroup.com/free-quote/</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://coolbreezeac.com/free-quote/</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolbreezeac.com/services/hvac-installation-replacement.html</loc>
+    <lastmod>2025-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://eco-techelectricalgroup.com/services/electrical-panel-replacement.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://coolbreezeac.com/services/hvac-repair-emergency.html</loc>
+    <lastmod>2025-06-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://eco-techelectricalgroup.com/services/electrical-service-upgrade.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://coolbreezeac.com/services/heating-heat-pump.html</loc>
+    <lastmod>2025-06-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://eco-techelectricalgroup.com/services/generator-services.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://coolbreezeac.com/services/preventive-maintenance.html</loc>
+    <lastmod>2025-06-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://eco-techelectricalgroup.com/services/new-construction.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://coolbreezeac.com/services/ductwork-ventilation.html</loc>
+    <lastmod>2025-06-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://eco-techelectricalgroup.com/services/renewal-and-addition.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <loc>https://coolbreezeac.com/services/indoor-air-quality.html</loc>
+    <lastmod>2025-06-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://coolbreezeac.com/services/commercial-industrial.html</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolbreezeac.com/services/mechanical-construction.html</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolbreezeac.com/services/comfort-controls.html</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

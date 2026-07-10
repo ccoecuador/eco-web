@@ -42,10 +42,10 @@
     }
 
     function getVisibleSlides() {
-      if (window.innerWidth <= singleSlideBreakpoint || carouselItems.length <= 2) {
+      if (window.innerWidth <= singleSlideBreakpoint || carouselItems.length <= 1) {
         return 1;
       }
-      return 2;
+      return Math.min(3, carouselItems.length);
     }
 
     function getPositionCount() {
